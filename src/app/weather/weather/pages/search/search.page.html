@@ -1,0 +1,54 @@
+<div class="weather-container">
+  <div class="search-bar">
+    <input [formControl]="searchControl" class="search-container" placeholder="Search any city" (click)="showList=true; searchclicked=true;" (blur)="onSearchBlur()" />
+   <img src="assets/icons/search-icon.svg" class="icon search-icon">
+  <div  class="search-dropdown" *ngIf="showList" (click)="dropDownclicked=true" >
+    <ng-container *ngIf="searchResults.length > 0">
+    <div *ngFor="let result of searchResults" class="dropdown-item flex">
+      <div  (click)="onSelectLocation(result)"class="dropdown-item-size"> 
+         <h2>{{ result.LocalizedName }}</h2>
+      {{ result.Country.ID }}, {{ result.LocalizedName }}, {{ result.AdministrativeArea.LocalizedName }}
+    </div>
+    <div class="icon" (click)="setFavorite(result)"  tabindex="0" (focus)="onDropdownFocus()" (blur)="onDropdownBlur()">
+      <img src="assets/icons/empty-favorite-icon.svg" class="icon favorite-icon" title ="Set Favorite" *ngIf="!result.IsFavorite">
+      <img src="assets/icons/favorite-icon.svg" class="icon favorite-icon" title="Unset Favorite" *ngIf="result.IsFavorite" >
+    </div> 
+  </div>
+</ng-container>
+  </div>
+</div>
+    <div class="today-weather">
+      <div *ngIf="currentLocation" class="flex">
+        <div>
+      <h2>Current Weather in {{ currentLocation.LocalizedName }} </h2>
+      <p>{{ currentLocation.Country.ID }}, {{ currentLocation.LocalizedName }}, {{ currentLocation.AdministrativeArea.LocalizedName }}</p>
+      </div>
+      <div class="icon" (click)="setFavorite(currentLocation)">
+        <img src="assets/icons/empty-favorite-icon.svg" class="icon favorite-icon" title ="Add Favorite" *ngIf="!currentLocation.IsFavorite">
+        <img src="assets/icons/favorite-icon.svg" class="icon favorite-icon" title="Remove Favorite" *ngIf="currentLocation.IsFavorite" >
+      </div>
+    </div>
+      <div *ngIf="todayWeather">
+        <h2 *ngIf="weatherApi.isMetric">{{ todayWeather.Temperature.Metric.Value }}°{{todayWeather.Temperature.Metric.Unit}}</h2>
+        <h2 *ngIf="!weatherApi.isMetric">{{ todayWeather.Temperature.Imperial.Value }}°{{todayWeather.Temperature.Imperial.Unit}}</h2>
+        <p>{{ todayWeather.WeatherText }}</p>
+      </div>
+    </div>
+    <div class="future-weather">
+      <ng-container *ngIf="currentForecast">
+            <mat-card class="weather-card" *ngFor="let day of currentForecast.DailyForecasts">
+              <mat-card-header>
+                <mat-card-title>{{ day.Date | date:'EEEE' }}</mat-card-title>
+                <mat-card-subtitle>{{ day.Date | date:"dd'/'MM" }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>
+                  Min: {{ day.Temperature.Minimum.Value }}°{{day.Temperature.Minimum.Unit}}
+                  <br>
+                  Max: <b>{{ day.Temperature.Maximum.Value }}°{{day.Temperature.Minimum.Unit}}</b>
+                </p>
+              </mat-card-content>
+            </mat-card>
+    </ng-container>
+    </div>
+  </div>

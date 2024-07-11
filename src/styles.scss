@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-progress-bar .mat-progress-bar-buffer {
+    background: rgb(184, 184, 184);
+}
+  
+mat-progress-bar .mat-progress-bar-fill::after {
+    background: #8fbd11;
+}
+
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .dark-theme {
+    --background-color: #121212;
+    --text-color: #ffffff;
+  }
+
+  .dark-theme .dropdown-item {
+  background-color: #313131;
+  }

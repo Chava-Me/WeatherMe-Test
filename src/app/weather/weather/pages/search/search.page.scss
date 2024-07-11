@@ -1,0 +1,117 @@
+.weather-container {
+    display: grid;
+    grid-template-areas:
+      "search-bar"
+      "today-weather"
+      "future-weather";
+    gap: 1rem;
+    padding: 1rem;
+    margin: auto;
+  }
+  
+  .search-container {
+    max-width: 400px;
+    margin: auto;
+  }
+  .search-bar {
+    position: relative;
+  }
+  
+  .search-container form {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .search-container form input, 
+  .search-container form select,
+  .search-container form button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .search-container  {
+    padding: 5px 30px;
+    min-width: 200px;
+    position: relative;
+  }
+  
+  .today-weather {
+    grid-area: today-weather;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    --background-color: #f9f9f9;
+  }
+  
+  .future-weather {
+    grid-area: future-weather;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    --background-color: #f9f9f9;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  
+  .future-weather .weather-card {
+    padding: 0.5rem 0;
+    flex: 1 1 10%;
+    align-items: center;
+    margin: 0 6px 0 0;
+  }
+
+  mat-card {
+    height: 100px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  
+  .search-dropdown {
+    position: absolute;
+    min-width: 262px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000;
+  }
+  
+  .dropdown-item {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .favorite-icon{
+    top: 2px;
+    position: relative;
+  }
+
+  .search-icon{
+    top: 5px;
+    left: 7px;
+    position: absolute;
+  }
+
+  .flex{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .mat-card {
+    background: linear-gradient(to bottom, #1eaf67 0%, #87e48c 89%);
+  }
+
+  .dropdown-item-size{
+    width: 90%;
+  }
