@@ -90,13 +90,13 @@ this.weatherApi.temperatureUnitChanged.subscribe(()=>this.getCurrentWeather())
     this.weatherApi.getCurrentWeather(this.currentCityId).subscribe(data => {
       this.todayWeather = data;
       this.loader.removeRequest();
-    }, err=>{this.loader.removeRequest(); this.handleModalError('Weather has an error: '+err)});
+    }, err=>{this.loader.removeRequest(); this.handleModalError('Weather has an error: '+err.statusText)});
 
     this.weatherApi.getForecast(this.currentCityId).subscribe(data => {
       this.currentForecast = data;
       this.loader.removeRequest();
     }, err=>{this.loader.removeRequest();
-      this.handleModalError('Forecast has an error: '+err)
+      this.handleModalError('Forecast has an error: '+err.statusText)
     });
   }
 
