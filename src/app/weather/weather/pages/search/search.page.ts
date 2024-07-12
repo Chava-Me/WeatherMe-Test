@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, filter, map, Observable, switchMap } from 'rxjs';
 import { FavoritesService } from 'src/app/core/services/favorites.service';
@@ -37,7 +36,7 @@ export class SearchPage {
     private router: Router,
     private favorites: FavoritesService,
     private loader:LoaderService,
-    private dialog: MatDialog) {
+   ) {
   }
 
   ngOnInit() {
