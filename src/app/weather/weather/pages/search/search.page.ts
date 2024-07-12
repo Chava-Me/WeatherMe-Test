@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { debounceTime, distinctUntilChanged, filter, map, Observable, switchMap } from 'rxjs';
@@ -18,7 +18,7 @@ import { Location as LocationModel } from 'src/app/shared/models/location.model'
 })
 export class SearchPage {
 
-  searchControl = new UntypedFormControl();
+  searchControl = new FormControl();
   searchResults: LocationModel[] = []
   currentForecast: Forecast;
   todayWeather: CurrentWeather;
