@@ -1,7 +1,7 @@
 <div class="weather-container">
   <div class="search-bar">
     <input [formControl]="searchControl" class="search-container" placeholder="Search any city" (click)="showList=true; searchclicked=true;" (blur)="onSearchBlur()" />
-   <img src="assets/icons/search-icon.svg" class="icon search-icon">
+    <mat-icon svgIcon="search-icon" class="icon search-icon"></mat-icon>
   <div  class="search-dropdown" *ngIf="showList" (click)="dropDownclicked=true" >
     <ng-container *ngIf="searchResults.length > 0">
     <div *ngFor="let result of searchResults" class="dropdown-item flex">
@@ -24,9 +24,9 @@
       <p>{{ currentLocation.Country.ID }}, {{ currentLocation.LocalizedName }}, {{ currentLocation.AdministrativeArea.LocalizedName }}</p>
       </div>
       <div class="icon" (click)="setFavorite(currentLocation)">
-        <img src="assets/icons/empty-favorite-icon.svg" class="icon favorite-icon" title ="Add Favorite" *ngIf="!currentLocation.IsFavorite">
-        <img src="assets/icons/favorite-icon.svg" class="icon favorite-icon" title="Remove Favorite" *ngIf="currentLocation.IsFavorite" >
-      </div>
+        <mat-icon aria-hidden="false" svgIcon="empty-favorite-icon" title ="Add Favorite" *ngIf="!currentLocation.IsFavorite"></mat-icon>
+        <mat-icon aria-hidden="false" svgIcon="favorite-icon" title="Remove Favorite" *ngIf="currentLocation.IsFavorite"></mat-icon>
+    </div>
     </div>
       <div *ngIf="todayWeather">
         <h2 *ngIf="weatherApi.isMetric">{{ todayWeather.Temperature.Metric.Value }}°{{todayWeather.Temperature.Metric.Unit}}</h2>

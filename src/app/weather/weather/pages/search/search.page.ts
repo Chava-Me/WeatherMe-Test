@@ -10,6 +10,7 @@ import { CurrentWeather } from 'src/app/shared/models/currentWeather.model';
 import { Forecast } from 'src/app/shared/models/forecast.model';
 import { Location as LocationModel } from 'src/app/shared/models/location.model';
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
@@ -37,6 +38,7 @@ export class SearchPage {
     private favorites: FavoritesService,
     private loader:LoaderService,
    ) {
+    
   }
 
   ngOnInit() {
