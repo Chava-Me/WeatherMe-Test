@@ -5,9 +5,10 @@ import { WeatherRoutingModule } from './weather-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { WeatherCardComponent } from './weather-card/weather-card.component';
 
 @NgModule({
-  declarations: [SearchPage],
+  declarations: [SearchPage, WeatherCardComponent],
   imports: [CommonModule, WeatherRoutingModule,ReactiveFormsModule,MatCardModule,MatIconModule],
   exports:[MatIconModule]
 })

@@ -36,19 +36,7 @@
     </div>
     <div class="future-weather">
       <ng-container *ngIf="currentForecast">
-            <mat-card class="weather-card" *ngFor="let day of currentForecast.DailyForecasts">
-              <mat-card-header>
-                <mat-card-title>{{ day.Date | date:'EEEE' }}</mat-card-title>
-                <mat-card-subtitle>{{ day.Date | date:"dd'/'MM" }}</mat-card-subtitle>
-              </mat-card-header>
-              <mat-card-content>
-                <p>
-                  Min: {{ day.Temperature.Minimum.Value }}°{{day.Temperature.Minimum.Unit}}
-                  <br>
-                  Max: <b>{{ day.Temperature.Maximum.Value }}°{{day.Temperature.Minimum.Unit}}</b>
-                </p>
-              </mat-card-content>
-            </mat-card>
+            <app-weather-card  *ngFor="let day of currentForecast.DailyForecasts" [card]="day" ></app-weather-card>
     </ng-container>
     </div>
   </div>
